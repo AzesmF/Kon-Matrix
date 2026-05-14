@@ -10,6 +10,7 @@ a54a8870b8f705c623d36c9ee4bf39113b5406ad547d785b162964a979be47e3  ./docs/levels/
 1e00ca62d62e2d48bd46334a2b559771a7641a62c4452dfabb1e215999984aac  ./docs/examples/self-audit.md
 63569dce488add404c82f413bdf2866809a5dcb7af6b41aa723b76bc641b6060  ./docs/examples/index.md
 304c72c41d14bd68468f1bb61dcbd300cefb4ffea2635f3cb1c5ec395a744364  ./docs/rfc/RFC-v1.1.md
+ecac5cc3fa5de2336ab287027ac6258b5774a52abeaa986033edfb21be9db6f6  ./docs/adr/001-field-cocreation-license.md
 44ad0d7d492ba9fab36da2fea2105f2d5a0500fbd5deead57111624620ec0da8  ./CONTRIBUTING.md
 f3211edd0625c64fd1705cdbc3bf0b9e153228f814547e01282b55fded05b12e  ./ROADMAP.md
 f95788210b4bf1804e188014f957c68964558f1a4150e4afe3e5e227dbadfd7f  ./tools/scanner-l1.py
