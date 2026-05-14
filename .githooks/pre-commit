@@ -1,0 +1,13 @@
+#!/bin/sh
+# KON-MATRIX pre-commit hook: автоматическое обновление SHA256SUMS
+# Соответствие критерию INT-L1 (контрольные суммы)
+
+echo "KON-MATRIX: обновляю SHA256SUMS..."
+
+# Генерируем SHA256SUMS для всех .md и .py файлов
+find . -type f \( -name "*.md" -o -name "*.py" \) -exec sha256sum {} \; > SHA256SUMS
+
+# Добавляем обновлённый файл в текущий коммит
+git add SHA256SUMS
+
+echo "KON-MATRIX: SHA256SUMS обновлён."

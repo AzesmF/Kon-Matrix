@@ -44,23 +44,31 @@ KON-MATRIX — это универсальный чек-лист из 12 пун�
 
 ## Структура репозитория
 
-```
-
 Kon-Matrix/
-├── README.md
-├── LICENSE
-├── CONTRIBUTING.md
-├── ROADMAP.md
-├── CHANGELOG.md
+├── [README.md](./README.md)
+├── [LICENSE](./LICENSE)
+├── [CONTRIBUTING.md](./CONTRIBUTING.md)
+├── [ROADMAP.md](./ROADMAP.md)
+├── [CHANGELOG.md](./CHANGELOG.md)
+├── [SHA256SUMS](./SHA256SUMS)
 ├── docs/
-│   ├── matrix-core.md
+│   ├── [matrix-core.md](./docs/matrix-core.md)
 │   ├── levels/
+│   │   ├── [L1-basic.md](./docs/levels/L1-basic.md)
+│   │   ├── [L2-advanced.md](./docs/levels/L2-advanced.md)
+│   │   └── [L3-ideal.md](./docs/levels/L3-ideal.md)
 │   ├── examples/
+│   │   ├── [web-development.md](./docs/examples/web-development.md)
+│   │   ├── [ai-systems.md](./docs/examples/ai-systems.md)
+│   │   ├── [offline-business.md](./docs/examples/offline-business.md)
+│   │   ├── [hr-processes.md](./docs/examples/hr-processes.md)
+│   │   └── [self-audit.md](./docs/examples/self-audit.md)
 │   └── rfc/
+│       └── [RFC-v1.1.md](./docs/rfc/RFC-v1.1.md)
 ├── tools/
+│   └── [scanner-l1.py](./tools/scanner-l1.py)
 └── assets/
-
-```
+    └── images/
 
 ---
 
