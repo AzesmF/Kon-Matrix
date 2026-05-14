@@ -44,31 +44,33 @@ KON-MATRIX — это универсальный чек-лист из 12 пун�
 
 ## Структура репозитория
 
+<pre>
 Kon-Matrix/
-├── [README.md](./README.md)
-├── [LICENSE](./LICENSE)
-├── [CONTRIBUTING.md](./CONTRIBUTING.md)
-├── [ROADMAP.md](./ROADMAP.md)
-├── [CHANGELOG.md](./CHANGELOG.md)
-├── [SHA256SUMS](./SHA256SUMS)
+├── <a href="./README.md">README.md</a>
+├── <a href="./LICENSE">LICENSE</a>
+├── <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a>
+├── <a href="./ROADMAP.md">ROADMAP.md</a>
+├── <a href="./CHANGELOG.md">CHANGELOG.md</a>
+├── <a href="./SHA256SUMS">SHA256SUMS</a>
 ├── docs/
-│   ├── [matrix-core.md](./docs/matrix-core.md)
+│   ├── <a href="./docs/matrix-core.md">matrix-core.md</a>
 │   ├── levels/
-│   │   ├── [L1-basic.md](./docs/levels/L1-basic.md)
-│   │   ├── [L2-advanced.md](./docs/levels/L2-advanced.md)
-│   │   └── [L3-ideal.md](./docs/levels/L3-ideal.md)
+│   │   ├── <a href="./docs/levels/L1-basic.md">L1-basic.md</a>
+│   │   ├── <a href="./docs/levels/L2-advanced.md">L2-advanced.md</a>
+│   │   └── <a href="./docs/levels/L3-ideal.md">L3-ideal.md</a>
 │   ├── examples/
-│   │   ├── [web-development.md](./docs/examples/web-development.md)
-│   │   ├── [ai-systems.md](./docs/examples/ai-systems.md)
-│   │   ├── [offline-business.md](./docs/examples/offline-business.md)
-│   │   ├── [hr-processes.md](./docs/examples/hr-processes.md)
-│   │   └── [self-audit.md](./docs/examples/self-audit.md)
+│   │   ├── <a href="./docs/examples/web-development.md">web-development.md</a>
+│   │   ├── <a href="./docs/examples/ai-systems.md">ai-systems.md</a>
+│   │   ├── <a href="./docs/examples/offline-business.md">offline-business.md</a>
+│   │   ├── <a href="./docs/examples/hr-processes.md">hr-processes.md</a>
+│   │   └── <a href="./docs/examples/self-audit.md">self-audit.md</a>
 │   └── rfc/
-│       └── [RFC-v1.1.md](./docs/rfc/RFC-v1.1.md)
+│       └── <a href="./docs/rfc/RFC-v1.1.md">RFC-v1.1.md</a>
 ├── tools/
-│   └── [scanner-l1.py](./tools/scanner-l1.py)
+│   └── <a href="./tools/scanner-l1.py">scanner-l1.py</a>
 └── assets/
     └── images/
+</pre>
 
 ---
 
