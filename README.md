@@ -2,8 +2,8 @@
 
 **Метод оценки зрелости систем и процессов**
 
-[![Лицензия](https://img.shields.io/badge/License-Field--CoCreation-blue)](./LICENSE)
-[![Грант](https://img.shields.io/badge/Грант-Создай%20НАШЕ-orange)](#)
+[![Лицензия: Field-CoCreation](https://img.shields.io/badge/License-Field--CoCreation-blue)](./LICENSE)  
+[![Грант: Создай НАШЕ](https://img.shields.io/badge/Грант-Создай%20НАШЕ-orange)](#)
 
 ---
 
@@ -37,7 +37,7 @@ KON-MATRIX — это универсальный чек-лист из 12 пун�
 ## Быстрый старт
 
 1. Прочитайте [ядро методологии](./docs/matrix-core.md) — таблицу всех 12 ячеек.
-2. Посмотрите примеры адаптации в [`docs/examples/`](./docs/examples/): веб-разработка, AI, производство, HR.
+2. Посмотрите [примеры адаптации](./docs/examples/) — веб-разработка, AI, производство, HR и самоаудит.
 3. Возьмите шаблон оценки для вашего домена и проверьте свой проект.
 
 ---
@@ -51,10 +51,12 @@ Kon-Matrix/
 ├── LICENSE
 ├── CONTRIBUTING.md
 ├── ROADMAP.md
+├── CHANGELOG.md
 ├── docs/
 │   ├── matrix-core.md
 │   ├── levels/
-│   └── examples/
+│   ├── examples/
+│   └── rfc/
 ├── tools/
 └── assets/
 
@@ -68,6 +70,7 @@ Kon-Matrix/
 - [AI-системы](./docs/examples/ai-systems.md)
 - [Производство и офлайн-бизнес](./docs/examples/offline-business.md)
 - [Команда / HR-процессы](./docs/examples/hr-processes.md)
+- [Аудит GitHub-репозитория KON-MATRIX (самоприменение)](./docs/examples/self-audit.md)
 
 ---
 
