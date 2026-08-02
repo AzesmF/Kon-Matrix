@@ -1,5 +1,7 @@
 <img src="assets/images/logo.svg" alt="KON-MATRIX" width="200">
 
+**Статус:** ✅ [L1 Verified](docs/passport/L1-PASSPORT.md) | [CI/CD](https://github.com/AzesmF/Kon-Matrix/actions)
+
 **Метод оценки зрелости систем и процессов**
 
 [![Лицензия: Field-CoCreation](https://img.shields.io/badge/License-Field--CoCreation-blue)](./LICENSE)  
