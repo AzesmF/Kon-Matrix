@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kon-matrix-scanner"
+version = "0.1.0"
+description = "L1 Verification tool for Kon-Matrix methodology"
+requires-python = ">=3.10"
+dependencies = []

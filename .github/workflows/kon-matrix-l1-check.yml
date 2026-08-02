@@ -1,0 +1,26 @@
+name: Kon-Matrix L1 Verification
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  l1-verification:
+    name: L1 Scanner (4 Kons)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run L1 scanner
+        run: python tools/scanner-l1.py
