@@ -1,0 +1,16 @@
+version: 2
+updates:
+  # Сканирование Python зависимостей (для нашего pyproject.toml)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+
+  # Сканирование самих GitHub Actions на уязвимости
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
