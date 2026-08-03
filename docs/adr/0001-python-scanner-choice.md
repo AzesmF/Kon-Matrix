@@ -15,5 +15,5 @@
 - **Альтернативы:** Node.js (отклонён из-за необходимости управления node_modules и package.json для простого скрипта), Bash (отклонён из-за сложности парсинга и поддержки).
 
 ## Ссылки
-- tools/scanner-l1.py
-- pyproject.toml
+- [tools/scanner-l1.py](../../tools/scanner-l1.py)
+- [pyproject.toml](../../pyproject.toml)

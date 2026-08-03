@@ -1,6 +1,6 @@
 <img src="assets/images/logo.svg" alt="KON-MATRIX" width="200">
 
-**Статус:** ✅ [L1 Verified](docs/passport/L1-PASSPORT.md) | [CI/CD](https://github.com/AzesmF/Kon-Matrix/actions)
+**Статус:** ✅ [L2 Verified](docs/passport/L2-PASSPORT.md) | [CI/CD](https://github.com/AzesmF/Kon-Matrix/actions) | [Dependabot](https://github.com/AzesmF/Kon-Matrix/security/dependabot)
 
 **Метод оценки зрелости систем и процессов**
 
