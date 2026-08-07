@@ -1,0 +1,53 @@
+name: Auto Changelog on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Get previous tag
+        id: previoustag
+        run: |
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          echo "previous_tag=$PREVIOUS_TAG" >> $GITHUB_OUTPUT
+      
+      - name: Generate changelog
+        id: changelog
+        run: |
+          TAG_NAME=${{ github.event.release.tag_name }}
+          PREVIOUS_TAG=${{ steps.previoustag.outputs.previous_tag }}
+          RELEASE_DATE=$(date +%Y-%m-%d)
+          
+          if [ -z "$PREVIOUS_TAG" ]; then
+            COMMITS=$(git log --pretty=format:"- %s (%h)" --reverse)
+          else
+            COMMITS=$(git log --pretty=format:"- %s (%h)" --reverse $PREVIOUS_TAG..HEAD)
+          fi
+          
+          CHANGELOG_ENTRY="## [$TAG_NAME] - $RELEASE_DATE\n\n### Changes\n$COMMITS\n\n"
+          
+          # Вставляем новую запись после заголовка # Changelog
+          if grep -q "^# Changelog" CHANGELOG.md; then
+            sed -i "/^# Changelog/a\\$CHANGELOG_ENTRY" CHANGELOG.md
+          else
+            echo -e "# Changelog\n\n$CHANGELOG_ENTRY$(cat CHANGELOG.md)" > CHANGELOG.md
+          fi
+      
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "docs: auto-update CHANGELOG for ${{ github.event.release.tag_name }}" || echo "No changes to commit"
+          git push
