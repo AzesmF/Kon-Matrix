@@ -1,5 +1,35 @@
 # Журнал изменений (Changelog)
 
+## [v0.2.1] - 2026-08-07
+
+### Changes
+- init: ствол методологии KON-MATRIX v2.0, примеры адаптации, лицензия (2016964)
+- добавлены доказательства IPFS и TON timestamping (8b8b1e2)
+- ребрендинг: деловая лексика, добавлены RFC v1.1, CHANGELOG, PHILOSOPHY (fa490d2)
+- обновлён BLOCKCHAIN.md: добавлена временная метка версии после ребрендинга (eaebab9)
+- добавлены SVG-иконки, логотип, _config.yml для GitHub Pages (491782f)
+- исправлены ссылки для GitHub Pages, добавлен индекс примеров, самоаудит (2b4c23b)
+- добавлен авто-сканер L1 и SHA256SUMS для целостности (b9585e4)
+- автоматизация SHA256SUMS через pre-commit hook, обновлены matrix-core и README (f71ba74)
+- добавлены шаблоны Issues: proposal и bug report (839d035)
+- Merge pull request #1 from AzesmF/feature/issue-templates (52f5972)
+- исправлена структура репозитория через HTML-дерево для Pages (83507cc)
+- добавлен L2-сканер для проверки продвинутого уровня (5ac7578)
+- Merge pull request #2 from AzesmF/feature/scanner-l2 (3e907f5)
+- добавлен первый ADR: выбор лицензии Field-CoCreation (e2c18e4)
+- актуализирован CHANGELOG: добавлены изменения за 14 мая 2026 (d16a436)
+- feat: add Kon-Matrix L1 CI workflow (cd843d1)
+- feat: update CHANGELOG to SemVer format and regenerate SHA256SUMS (47ca9da)
+- docs: add Kon-Matrix L1 Passport and update README badge (89672f3)
+- feat(l2): add Dependabot security scanning and initial ADR (d81f941)
+- Bump actions/checkout from 4 to 7 (#4) (905b846)
+- Bump actions/setup-python from 5 to 7 (#3) (e599aa7)
+- feat(l2): add TRA-L2 metrics dashboard and update Passport to L2 (4f6345f)
+- fix: исправить ошибки L2 артефактов и обновить статус (c6841ac)
+- ci: add auto-changelog workflow for releases (3300046)
+- feat: add Python-based auto-changelog workflow (ec750db)
+
+
 ## [0.2.0] - 2026-08-03
 
 ### Added
