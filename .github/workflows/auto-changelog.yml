@@ -15,39 +15,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: master
       
-      - name: Get previous tag
-        id: previoustag
-        run: |
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
-          echo "previous_tag=$PREVIOUS_TAG" >> $GITHUB_OUTPUT
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       
-      - name: Generate changelog
-        id: changelog
-        run: |
-          TAG_NAME=${{ github.event.release.tag_name }}
-          PREVIOUS_TAG=${{ steps.previoustag.outputs.previous_tag }}
-          RELEASE_DATE=$(date +%Y-%m-%d)
-          
-          if [ -z "$PREVIOUS_TAG" ]; then
-            COMMITS=$(git log --pretty=format:"- %s (%h)" --reverse)
-          else
-            COMMITS=$(git log --pretty=format:"- %s (%h)" --reverse $PREVIOUS_TAG..HEAD)
-          fi
-          
-          CHANGELOG_ENTRY="## [$TAG_NAME] - $RELEASE_DATE\n\n### Changes\n$COMMITS\n\n"
-          
-          # Вставляем новую запись после заголовка # Changelog
-          if grep -q "^# Changelog" CHANGELOG.md; then
-            sed -i "/^# Changelog/a\\$CHANGELOG_ENTRY" CHANGELOG.md
-          else
-            echo -e "# Changelog\n\n$CHANGELOG_ENTRY$(cat CHANGELOG.md)" > CHANGELOG.md
-          fi
+      - name: Run auto-changelog script
+        run: python3 tools/auto-changelog.py
       
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add CHANGELOG.md
-          git commit -m "docs: auto-update CHANGELOG for ${{ github.event.release.tag_name }}" || echo "No changes to commit"
-          git push
+          git add CHANGELOG.md SHA256SUMS
+          git commit -m "docs: auto-update CHANGELOG and SHA256SUMS for ${{ github.event.release.tag_name }}" || echo "No changes to commit"
+          git push origin master
