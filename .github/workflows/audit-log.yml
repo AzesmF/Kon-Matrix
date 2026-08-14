@@ -1,10 +1,9 @@
 name: Audit Log Recording
 
 on:
-  push:
-    branches: [master]
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   create-pr:
@@ -23,18 +22,18 @@ jobs:
         run: |
           mkdir -p audit-logs
           python3 tools/worm-logger.py append \
-            --event "ci.triggered" \
-            --detail '{"ref": "${{ github.ref }}", "actor": "${{ github.actor }}"}' \
+            --event "release.published" \
+            --detail '{"tag": "${{ github.event.release.tag_name }}", "actor": "${{ github.actor }}"}' \
             --actor "github-actions"
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          commit-message: "chore: append to WORM audit log"
-          title: "🤖 Auto Audit Log Update"
+          commit-message: "chore: append to WORM audit log for ${{ github.event.release.tag_name }}"
+          title: " Auto Audit Log: ${{ github.event.release.tag_name }}"
           body: |
-            Автоматическая запись событий в WORM audit log.
+            Автоматическая запись события релиза в WORM audit log.
             
             **Изменения:**
             - Обновлён `audit-logs/worm-chain.jsonl`
@@ -42,7 +41,7 @@ jobs:
             **Проверка:**
             - [x] Целостность цепочки хешей сохранена
             - [ ] Требуется ручное одобрение и merge
-          branch: auto/audit-log
+          branch: auto/audit-log-${{ github.event.release.tag_name }}
           base: master
           labels: automated,audit
           reviewers: AzesmF
