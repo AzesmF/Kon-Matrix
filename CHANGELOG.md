@@ -1,5 +1,17 @@
 # Журнал изменений (Changelog)
 
+## [v0.3.0] - 2026-08-14
+
+### Changes
+- docs: auto-update CHANGELOG and SHA256SUMS for v0.2.1 (e0edbd6)
+- docs: актуализация README.md для GitHub Pages (597d984)
+- docs: актуализация L3-PASSPORT.md (56b6d06)
+- build(deps): bump actions/checkout from 4 to 7 (#6) (8632971)
+- build(deps): bump actions/setup-python from 5 to 7 (#5) (04e353f)
+- ci: use PAT_TOKEN for auto-changelog workflow (e0c3e53)
+- ci: переход на создание PR для auto-changelog (соблюдение INT-L3) (22d52d5)
+
+
 ## [v0.2.1] - 2026-08-07
 
 ### Changes
