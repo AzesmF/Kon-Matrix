@@ -1,0 +1,54 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "kon-matrix-scanner",
+      "digest": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildType": "https://kon-matrix.dev/build/github-actions/v1",
+    "builder": {
+      "id": "https://github.com/AzesmF/Kon-Matrix/.github/workflows/slsa-verification.yml@refs/heads/master"
+    },
+    "invocation": {
+      "configSource": {
+        "uri": "git+https://github.com/AzesmF/Kon-Matrix",
+        "digest": {
+          "sha1": "HEAD"
+        },
+        "entryPoint": "slsa-verification.yml"
+      }
+    },
+    "materials": [
+      {
+        "uri": "git+https://github.com/AzesmF/Kon-Matrix@master",
+        "digest": {
+          "sha256": "placeholder-updated-by-ci"
+        }
+      },
+      {
+        "uri": "sbom/sbom.cyclonedx.json",
+        "digest": {
+          "sha256": "placeholder-updated-by-ci"
+        }
+      }
+    ],
+    "metadata": {
+      "buildInvocationId": "kon-matrix-l3-phase2",
+      "completeness": {
+        "parameters": true,
+        "environment": true,
+        "materials": true
+      },
+      "reproducible": true
+    }
+  },
+  "signature": {
+    "algorithm": "none",
+    "note": "Placeholder attestation for L3 Phase 2; CI workflow regenerates on release tags"
+  }
+}

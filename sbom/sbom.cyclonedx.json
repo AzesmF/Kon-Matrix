@@ -1,0 +1,124 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:bd689454-8b13-4250-8b12-05011c516973",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-08-14T14:42:09.808337+00:00",
+    "tools": [
+      {
+        "vendor": "KON-MATRIX",
+        "name": "generate-sbom.py",
+        "version": "0.1.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "kon-matrix-scanner",
+      "version": "0.1.0",
+      "description": "L1 Verification tool for Kon-Matrix methodology",
+      "purl": "pkg:pypi/kon-matrix-scanner@0.1.0",
+      "bom-ref": "pkg:pypi/kon-matrix-scanner@0.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e6097fe0c88eee2cd065933f2c613d62ea47fa1bd835edaa5e6f404f3e3eefca"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "name": "kon-matrix-scanner",
+      "version": "0.1.0",
+      "description": "L1 Verification tool for Kon-Matrix methodology",
+      "purl": "pkg:pypi/kon-matrix-scanner@0.1.0",
+      "bom-ref": "pkg:pypi/kon-matrix-scanner@0.1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e6097fe0c88eee2cd065933f2c613d62ea47fa1bd835edaa5e6f404f3e3eefca"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/auto-changelog.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/auto-changelog.py@local",
+      "bom-ref": "pkg:generic/tools/auto-changelog.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "72717afbcb26ca75f4c13911c35bceb2c7e679e26e3ecf01e01ac60593891bf9"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/generate-sbom.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/generate-sbom.py@local",
+      "bom-ref": "pkg:generic/tools/generate-sbom.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4c1f5d5097bb7f218ff1d3b9569dab0cd16454360fa43a007b95c4214ffff323"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/metrics-l2.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/metrics-l2.py@local",
+      "bom-ref": "pkg:generic/tools/metrics-l2.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c48f587f5d5b232c3af6284f9d48fc388beb7161b2f3592f647243a6edc7b8b2"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/scanner-l1.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/scanner-l1.py@local",
+      "bom-ref": "pkg:generic/tools/scanner-l1.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a43311dbc888c7b9e77296fd8a502581e1dad571e556d8b00ab4ae06c35f0a8e"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/scanner-l2.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/scanner-l2.py@local",
+      "bom-ref": "pkg:generic/tools/scanner-l2.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7df3e9d29327005af5e8d45239f2998cadf9247697f3b3f2862a05fa2e342868"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/scanner-l3.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/scanner-l3.py@local",
+      "bom-ref": "pkg:generic/tools/scanner-l3.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dfe32707bb8549c831fbc018ce30a48eb86b5ad6e57bad432605e43c8b8bb34f"
+        }
+      ]
+    }
+  ]
+}

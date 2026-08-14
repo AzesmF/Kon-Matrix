@@ -1,6 +1,6 @@
 <img src="assets/images/logo.svg" alt="KON-MATRIX" width="200">
 
-**Статус:** ✅ [L2 Verified](docs/passport/L2-PASSPORT.md) | [CI/CD](https://github.com/AzesmF/Kon-Matrix/actions) | [Dependabot](https://github.com/AzesmF/Kon-Matrix/security/dependabot)
+**Статус:** ✅ [L2 Verified](docs/passport/L2-PASSPORT.md) | 🔄 [L3 Ready](docs/passport/L3-PASSPORT.md) | [CI/CD](https://github.com/AzesmF/Kon-Matrix/actions) | [Dependabot](https://github.com/AzesmF/Kon-Matrix/security/dependabot)
 
 **Метод оценки зрелости систем и процессов**
 
@@ -21,7 +21,7 @@ KON-MATRIX — это универсальный чек-лист и набор �
 |---|---|---|---|
 | **L1 Базовый** | Контрольные суммы артефактов | Документированный состав системы | Журнал изменений (SemVer) | Структурированные логи |
 | **L2 Продвинутый** | Подписанные коммиты (Verified) | Отсутствие критических уязвимостей (CVE) | Архив архитектурных решений (ADR) | Дашборды метрик репозитория |
-| **L3 Целевой** | Сквозная верификация сборок | Подтверждённая независимым аудитом безопасность | Бесшовная эволюция без остановки сервиса | Полный аудит действий и экспорт данных |
+| **L3 Целевой** | SLSA + reproducible builds | SBOM (CycloneDX) + pen-test | Zero-downtime + MTTR < 5 мин | WORM audit log + export API |
 
 > Полная таблица критериев, доказательств и методов проверки: [docs/matrix-core.md](./docs/matrix-core.md)
 
@@ -40,6 +40,22 @@ KON-MATRIX — это универсальный чек-лист и набор �
 1. Прочитайте [ядро методологии](./docs/matrix-core.md) — таблицу всех 12 ячеек.
 2. Посмотрите [примеры адаптации](./docs/examples/) — веб-разработка, AI, производство, HR и самоаудит.
 3. Проверьте свой проект с помощью [инструментов верификации](./tools/).
+4. Для целевого уровня — изучите [L3 Overview](./docs/l3/README.md) и запустите `python tools/scanner-l3.py`.
+
+---
+
+## L3 Features
+
+Целевой уровень (L3) обеспечивает сквозную верифицируемость, независимый аудит и полную прозрачность:
+
+| Кон | L3 инструмент / артефакт | Команда |
+|-----|--------------------------|---------|
+| Целостность | SLSA attestation, reproducible builds | `python tools/scanner-l3.py` |
+| Чистота | CycloneDX SBOM | `python tools/generate-sbom.py` |
+| Развитие | Zero-downtime deployment guide | см. [docs/l3/](./docs/l3/) |
+| Прозрачность | WORM audit log + export API | см. [L3-PASSPORT](./docs/passport/L3-PASSPORT.md) |
+
+Подробнее: [docs/l3/README.md](./docs/l3/README.md) · [L3-PASSPORT.md](./docs/passport/L3-PASSPORT.md)
 
 ---
 
@@ -58,7 +74,10 @@ Kon-Matrix/
 │   ├── <a href="./docs/matrix-core.md">matrix-core.md</a>
 │   ├── passport/
 │   │   ├── <a href="./docs/passport/L1-PASSPORT.md">L1-PASSPORT.md</a>
-│   │   └── <a href="./docs/passport/L2-PASSPORT.md">L2-PASSPORT.md</a>
+│   │   ├── <a href="./docs/passport/L2-PASSPORT.md">L2-PASSPORT.md</a>
+│   │   └── <a href="./docs/passport/L3-PASSPORT.md">L3-PASSPORT.md</a>
+│   ├── l3/
+│   │   └── <a href="./docs/l3/README.md">README.md</a>
 │   ├── adr/
 │   │   └── <a href="./docs/adr/0001-python-scanner-choice.md">0001-python-scanner-choice.md</a>
 │   ├── levels/
@@ -76,6 +95,8 @@ Kon-Matrix/
 ├── tools/
 │   ├── <a href="./tools/scanner-l1.py">scanner-l1.py</a>
 │   ├── <a href="./tools/scanner-l2.py">scanner-l2.py</a>
+│   ├── <a href="./tools/scanner-l3.py">scanner-l3.py</a>
+│   ├── <a href="./tools/generate-sbom.py">generate-sbom.py</a>
 │   ├── <a href="./tools/metrics-l2.py">metrics-l2.py</a>
 │   └── <a href="./tools/auto-changelog.py">auto-changelog.py</a>
 └── assets/

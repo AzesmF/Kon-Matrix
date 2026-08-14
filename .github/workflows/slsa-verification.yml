@@ -1,0 +1,75 @@
+name: SLSA Verification
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  slsa-verification:
+    name: SLSA Provenance (INT-L3)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate SBOM for materials
+        run: python tools/generate-sbom.py
+
+      - name: Update SLSA provenance materials
+        run: |
+          COMMIT_SHA="${{ github.sha }}"
+          SBOM_HASH=$(sha256sum sbom/sbom.cyclonedx.json | cut -d' ' -f1)
+          python3 << 'PYEOF'
+          import json
+          from pathlib import Path
+
+          path = Path(".slsa/provenance.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          predicate = data["predicate"]
+          predicate["materials"] = [
+              {
+                  "uri": f"git+https://github.com/${{ github.repository }}@${{ github.ref_name }}",
+                  "digest": {"sha256": "${{ github.sha }}"},
+              },
+              {
+                  "uri": "sbom/sbom.cyclonedx.json",
+                  "digest": {"sha256": "${{ env.SBOM_HASH }}"},
+              },
+          ]
+          predicate["invocation"]["configSource"]["digest"] = {"sha1": "${{ github.sha }}"}
+          data["subject"] = [
+              {
+                  "name": "kon-matrix-scanner",
+                  "digest": {"sha256": "${{ github.sha }}"},
+              }
+          ]
+          path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+          PYEOF
+        env:
+          SBOM_HASH: ${{ hashFiles('sbom/sbom.cyclonedx.json') }}
+
+      - name: Verify SLSA attestation
+        run: python tools/verify-slsa.py --min-level 1
+
+      - name: Run L3 scanner (INT-L3)
+        run: python tools/scanner-l3.py
+
+      - name: Upload SLSA provenance artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: slsa-provenance
+          path: .slsa/provenance.json
+          retention-days: 90

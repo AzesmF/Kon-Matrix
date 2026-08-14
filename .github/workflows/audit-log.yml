@@ -1,0 +1,27 @@
+name: Audit Log Recording
+
+on:
+  push:
+    branches: [master]
+  release:
+    types: [published]
+
+jobs:
+  log-event:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record to WORM Log
+        run: |
+          mkdir -p audit-logs
+          python3 tools/worm-logger.py append \
+            --event "ci.triggered" \
+            --detail '{"ref": "${{ github.ref }}", "actor": "${{ github.actor }}"}' \
+            --actor "github-actions"
+      - name: Commit Log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add audit-logs/
+          git commit -m "chore: append to WORM audit log" || echo "No changes"
+          git push
