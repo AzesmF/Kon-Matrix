@@ -27,7 +27,7 @@ jobs:
             --actor "github-actions"
       
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.PAT_TOKEN }}
           commit-message: "chore: append to WORM audit log for ${{ github.event.release.tag_name }}"
