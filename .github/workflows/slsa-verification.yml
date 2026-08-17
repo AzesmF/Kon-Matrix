@@ -68,7 +68,7 @@ jobs:
         run: python tools/scanner-l3.py
 
       - name: Upload SLSA provenance artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: slsa-provenance
           path: .slsa/provenance.json
