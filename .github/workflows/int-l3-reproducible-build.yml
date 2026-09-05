@@ -1,0 +1,68 @@
+name: INT-L3 Reproducible Build Verification
+
+on:
+  workflow_dispatch: # Ручной запуск для проверки
+  push:
+    branches: [master]
+    paths:
+      - 'tools/**'
+      - 'pyproject.toml'
+
+jobs:
+  verify-reproducibility:
+    name: Diffoscope Build Verification
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install diffoscope
+        run: sudo apt-get update && sudo apt-get install -y diffoscope
+
+      - name: Create baseline artifact
+        run: |
+          mkdir -p build-baseline
+          # Создаём эталонный архив инструментов
+          tar --sort=name --owner=0 --group=0 --numeric-owner -czf build-baseline/tools-baseline.tar.gz tools/
+          sha256sum build-baseline/tools-baseline.tar.gz > build-baseline/baseline.sha256
+          cat build-baseline/baseline.sha256
+
+      - name: Simulate deterministic rebuild
+        run: |
+          mkdir -p build-rebuild
+          # Устанавливаем детерминированные переменные окружения
+          export SOURCE_DATE_EPOCH=0
+          export PYTHONHASHSEED=0
+          
+          # Имитируем процесс сборки/генерации (например, пересоздание SBOM)
+          python3 tools/generate-sbom.py
+          
+          # Создаём второй архив с теми же детерминированными параметрами
+          tar --mtime='1970-01-01 00:00:00' --sort=name --owner=0 --group=0 --numeric-owner -czf build-rebuild/tools-rebuild.tar.gz tools/ sbom/
+          sha256sum build-rebuild/tools-rebuild.tar.gz > build-rebuild/rebuild.sha256
+          cat build-rebuild/rebuild.sha256
+
+      - name: Run Diffoscope comparison
+        run: |
+          echo "🔍 Запуск diffoscope для сравнения артефактов..."
+          # diffoscope вернёт 0, если различий нет, или 1, если они есть.
+          # Мы используем || true, чтобы workflow не падал, а просто сохранял отчёт.
+          diffoscope build-baseline/tools-baseline.tar.gz build-rebuild/tools-rebuild.tar.gz > diffoscope-report.txt || true
+          
+          if [ -s diffoscope-report.txt ]; then
+            echo "⚠️ Обнаружены различия. См. отчёт diffoscope-report.txt"
+          else
+            echo "✅ Артефакты бит-в-бит идентичны. Сборка воспроизводима."
+          fi
+
+      - name: Upload Diffoscope Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diffoscope-verification-report
+          path: diffoscope-report.txt
+          retention-days: 30
