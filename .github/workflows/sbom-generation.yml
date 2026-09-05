@@ -48,5 +48,4 @@ jobs:
           branch: auto/sbom-generation
           base: master
           labels: automated,sbom
-          reviewers: AzesmF
           delete-branch: true
