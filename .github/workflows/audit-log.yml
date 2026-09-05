@@ -44,5 +44,4 @@ jobs:
           branch: auto/audit-log-${{ github.event.release.tag_name }}
           base: master
           labels: automated,audit
-          reviewers: AzesmF
           delete-branch: true
