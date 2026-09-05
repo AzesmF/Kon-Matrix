@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:bd689454-8b13-4250-8b12-05011c516973",
+  "serialNumber": "urn:uuid:4b6288ef-dea8-49b7-8a2a-6e93b2fab62e",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-08-14T14:42:09.808337+00:00",
+    "timestamp": "2026-09-05T16:22:08.894640+00:00",
     "tools": [
       {
         "vendor": "KON-MATRIX",
@@ -52,6 +52,19 @@
         {
           "alg": "SHA-256",
           "content": "72717afbcb26ca75f4c13911c35bceb2c7e679e26e3ecf01e01ac60593891bf9"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/export-audit-bundle.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/export-audit-bundle.py@local",
+      "bom-ref": "pkg:generic/tools/export-audit-bundle.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6d40206c6136904616aa59dcfb2b7801c9c4421091027604c9c8f056d324b563"
         }
       ]
     },
@@ -116,7 +129,33 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "dfe32707bb8549c831fbc018ce30a48eb86b5ad6e57bad432605e43c8b8bb34f"
+          "content": "82f1040cb5767ae03f42b0808ff2cf767a208c1d2d950161bb102c2cad22249d"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/verify-slsa.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/verify-slsa.py@local",
+      "bom-ref": "pkg:generic/tools/verify-slsa.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4920e490172962d7d23d06233705641c430aeaf5517c7967c5b83abb2a65ac69"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "tools/worm-logger.py",
+      "version": "local",
+      "purl": "pkg:generic/tools/worm-logger.py@local",
+      "bom-ref": "pkg:generic/tools/worm-logger.py@local",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2bad13fc875ebccb0b927e8d3ef10df66c6e1b749f88ebf66a0afff7f592cde9"
         }
       ]
     }
