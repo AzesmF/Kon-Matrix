@@ -1,5 +1,23 @@
 # Журнал изменений (Changelog)
 
+## [v0.4.0] - 2026-09-05
+
+### Changes
+- docs: auto-update CHANGELOG and SHA256SUMS for v0.3.0 (#7) (fed4e25)
+- feat(l3): завершение Фаз 1 и 2 (Целостность и Прозрачность) (03ea1ad)
+- ci: переделать workflows sbom и audit-log на создание PR (соблюдение INT-L3) (b0cd7de)
+- fix: исправить audit-log workflow (9f46d29)
+- feat(l3-tra): добавлен инструмент экспорта аудиторского пакета (32685c2)
+- build(deps): bump actions/upload-artifact from 4 to 7 (#8) (be96368)
+- build(deps): bump actions/setup-python from 5 to 7 (#9) (d6f8230)
+- build(deps): bump actions/checkout from 4 to 7 (#10) (792ef1a)
+- build(deps): bump peter-evans/create-pull-request from 6 to 8 (#11) (fecdda3)
+- feat(l3-pur): добавлен workflow DAST-сканирования (OWASP ZAP) (#12) (af81168)
+- Feat/int l3 diffoscope (#13) (ed4b356)
+- feat(l3-docs): добавлены гайды для аудиторов (SOC 2, ISO 27001, Independent Audit) (#14) (8cc99c8)
+- feat(l3-core): финальное обновление scanner-l3.py для валидации Фазы 3 (#15) (5b39bc9)
+
+
 ## [v0.3.0] - 2026-08-14
 
 ### Changes
